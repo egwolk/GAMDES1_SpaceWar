@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbnoq2xaxe2us"]
+
+[ext_resource type="Script" uid="uid://dcofoui545863" path="res://gds/enemy_1.gd" id="1_a1412"]
+[ext_resource type="Texture2D" uid="uid://cvdc0jdmwn66d" path="res://graphics/asteroids.png" id="1_bxkaf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58sco"]
+atlas = ExtResource("1_bxkaf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gpxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58sco")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_63qj1"]
+radius = 48.0
+height = 96.0
+
+[node name="enemy_1" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_a1412")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5gpxq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_63qj1")
