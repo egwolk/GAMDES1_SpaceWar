@@ -1,62 +1,40 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsr6yb6mahfu4"]
+[gd_scene load_steps=6 format=3 uid="uid://4fwi5nct0tap"]
 
-[ext_resource type="PackedScene" uid="uid://d12s2lod1m5cf" path="res://scenes/player.tscn" id="1_u52ul"]
-[ext_resource type="PackedScene" uid="uid://bxmhvequebnm2" path="res://scenes/enemy_spawner.tscn" id="2_b121j"]
-[ext_resource type="Script" uid="uid://drm7mxt34q12j" path="res://gds/parallax_background.gd" id="3_nfut8"]
-[ext_resource type="Texture2D" uid="uid://bd31fgavggev6" path="res://graphics/bg/tile003.png" id="4_e6wci"]
-[ext_resource type="Texture2D" uid="uid://dwghe8cv4wgsf" path="res://graphics/bg/tile004.png" id="5_0eik5"]
-[ext_resource type="Script" uid="uid://ddyxeoqr2vo60" path="res://gds/parallax_background_2.gd" id="6_0eik5"]
-[ext_resource type="Texture2D" uid="uid://clsykfkegtnil" path="res://graphics/bg/tile005.png" id="6_oay01"]
-[ext_resource type="Script" uid="uid://ci3iqrnwf2sl4" path="res://gds/parallax_background_3.gd" id="7_oay01"]
+[ext_resource type="PackedScene" uid="uid://dbj7cpyhvea1t" path="res://scenes/player.tscn" id="1_u52ul"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2q6dc"]
+normal = Vector2(0, 1)
+distance = 2.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mx8sn"]
+distance = -4.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w7c3h"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w8frs"]
+normal = Vector2(-1, 0)
+distance = -4.0
 
 [node name="level" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_u52ul")]
-position = Vector2(576, 592)
+[node name="player" parent="." instance=ExtResource("1_u52ul")]
+position = Vector2(258, 151)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-enabled = false
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="enemySpawner" parent="." instance=ExtResource("2_b121j")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(124, -2)
+shape = SubResource("WorldBoundaryShape2D_2q6dc")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource("3_nfut8")
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(186, 276)
+shape = SubResource("WorldBoundaryShape2D_mx8sn")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(0, -256)
-motion_mirroring = Vector2(0, 256)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 66)
+shape = SubResource("WorldBoundaryShape2D_w7c3h")
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-texture_filter = 1
-offset_right = 1164.0
-offset_bottom = 816.0
-texture = ExtResource("4_e6wci")
-
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
-script = ExtResource("6_0eik5")
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
-position = Vector2(0, -256)
-motion_mirroring = Vector2(0, 256)
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground2/ParallaxLayer2"]
-texture_filter = 1
-offset_right = 1158.0
-offset_bottom = 814.0
-texture = ExtResource("5_0eik5")
-stretch_mode = 1
-
-[node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
-script = ExtResource("7_oay01")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground3"]
-position = Vector2(0, -256)
-motion_mirroring = Vector2(0, 256)
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground3/ParallaxLayer3"]
-texture_filter = 1
-offset_right = 1156.0
-offset_bottom = 814.0
-texture = ExtResource("6_oay01")
-stretch_mode = 1
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(493, 91)
+shape = SubResource("WorldBoundaryShape2D_w8frs")

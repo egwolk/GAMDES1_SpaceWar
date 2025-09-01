@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1756699999
+icon.svg::CompressedTexture2D/CompressedTexture2D::5151473543503209338::1756688761::1756688848::1::::<><><>0<>0<>eb955d901b4bb35381f52ed3d59c45bd<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://graphics/::1756693099
+::res://graphics/player_ship/::1756701641
+ship-a1.png::CompressedTexture2D::5764326680725111324::1756701641::1756701642::1::::<><><>0<>0<>e88b33863289d570444f49c850082c60<>res://.godot/imported/ship-a1.png-9642ef62416e4369cfa14f6865755495.ctex::
+ship-a2.png::CompressedTexture2D/CompressedTexture2D::2223514054966915349::1756693114::1756693114::1::::<><><>0<>0<>0a90d577f3cba7705386bd69b2552e17<>res://.godot/imported/ship-a2.png-04056d3ff1d380b4081d6f4c80308c8e.ctex::
+ship-a3.png::CompressedTexture2D/CompressedTexture2D::1788837932554555404::1756693114::1756693114::1::::<><><>0<>0<>39301a023ce93d3cc026c78a34ea048e<>res://.godot/imported/ship-a3.png-7f3ea995d154c2ea206119bec0f3b133.ctex::
+::res://scenes/::1756701570
+level.tscn::PackedScene::2047150010365566931::1756701559::0::1::::<><><>0<>0<><>::uid://dbj7cpyhvea1t::::res://scenes/player.tscn
+main.tscn::PackedScene::1200172027681834170::1756701559::0::1::::<><><>0<>0<><>::uid://4fwi5nct0tap::::res://scenes/level.tscn
+player.tscn::PackedScene::7249977635132037463::1756701570::0::1::::<><><>0<>0<><>::uid://ccvifg00alw8s::::res://scripts/player.gd<>uid://6xc7mcx4l518::::res://graphics/player_ship/ship-a2.png<>uid://0qr5tx5fsfts::::res://graphics/player_ship/ship-a3.png
+::res://scripts/::1756701570
+player.gd::GDScript::4957066007305734148::1756701570::0::1::::<>CharacterBody2D<><>0<>0<><>::
