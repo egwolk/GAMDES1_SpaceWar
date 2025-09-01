@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://4fwi5nct0tap"]
+
+[ext_resource type="PackedScene" uid="uid://dbj7cpyhvea1t" path="res://scenes/player/player.tscn" id="1_u52ul"]
+
+[node name="level" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_u52ul")]
+position = Vector2(258, 151)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+enabled = false

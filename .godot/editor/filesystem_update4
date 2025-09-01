@@ -1,4 +1,8 @@
 res://scenes/level.tscn
-res://scenes/player.tscn
-res://scenes/main.tscn
 res://scripts/player.gd
+res://scenes/player/player.tscn
+res://scenes/main.tscn
+res://scenes/player_bullet/bullet.tscn
+res://scripts/bullet.gd
+res://scenes/main_scenes/level.tscn
+res://scenes/main_scenes/main.tscn
