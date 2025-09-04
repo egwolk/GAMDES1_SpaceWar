@@ -2,19 +2,23 @@ extends CharacterBody2D
 
 @export var speed :float = 200.0
 @export var acceleration :float = 10.0
+@export var shootDelay :float = 0.1
 
 @onready var bullet = preload("res://scenes/player_bullet/bullet.tscn")
 @onready var level = get_parent()
 @onready var _ship = $ship_sprite
+@onready var _guns = $gun_positions
+@onready var _shootCD = $shoot_delay
 
 
 func shoot():
-	var instance = bullet.instantiate()
-	instance.dir = rotation
-	instance.spawn = global_position
-	instance.spawnRot = rotation
-	instance.zdex = z_index -1
-	level.add_child.call_deferred(instance)
+	for child in _guns.get_children():
+		var instance = bullet.instantiate()
+		instance.dir = rotation
+		instance.spawn = child.global_position
+		instance.spawnRot = rotation
+		instance.zdex = z_index -1
+		level.add_child.call_deferred(instance)
 	
 #func _process(delta):
 	#if Input.is_action_pressed("ui_right"):
@@ -39,11 +43,13 @@ func get_input(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	get_input(delta)	
-	position.x = clamp(position.x, 17 , 943)
-	position.y = clamp(position.y, 15 , 525)
+	var rect = get_viewport_rect()
+	position.x = clamp(position.x, 17 , rect.size.x-17)
+	position.y = clamp(position.y, 15 , rect.size.y-15)
 	
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and _shootCD.is_stopped():
+		_shootCD.start(shootDelay)
 		shoot()
 	move_and_slide()
 	move_and_collide(velocity*delta)

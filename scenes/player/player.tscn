@@ -33,3 +33,14 @@ disabled = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yf02v")
 autoplay = "default"
+
+[node name="gun_positions" type="Node2D" parent="."]
+
+[node name="left_gun" type="Node2D" parent="gun_positions"]
+position = Vector2(-16, 4)
+
+[node name="right_gun" type="Node2D" parent="gun_positions"]
+position = Vector2(16, 4)
+
+[node name="shoot_delay" type="Timer" parent="."]
+one_shot = true
