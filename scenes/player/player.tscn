@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbj7cpyhvea1t"]
 
-[ext_resource type="Script" uid="uid://ccvifg00alw8s" path="res://scripts/player.gd" id="1_gmlin"]
-[ext_resource type="Texture2D" uid="uid://6xc7mcx4l518" path="res://graphics/player_ship/ship-a2.png" id="2_lvxji"]
-[ext_resource type="Texture2D" uid="uid://0qr5tx5fsfts" path="res://graphics/player_ship/ship-a3.png" id="3_p47bc"]
+[ext_resource type="Script" uid="uid://ccvifg00alw8s" path="res://scripts/player.gd" id="1_4kuee"]
+[ext_resource type="Texture2D" uid="uid://6xc7mcx4l518" path="res://graphics/player_ship/ship-a2.png" id="2_524rm"]
+[ext_resource type="Texture2D" uid="uid://0qr5tx5fsfts" path="res://graphics/player_ship/ship-a3.png" id="3_tpg5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ni5w"]
-atlas = ExtResource("2_lvxji")
+atlas = ExtResource("2_524rm")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf02v"]
@@ -15,15 +15,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_7ni5w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_p47bc")
+"texture": ExtResource("3_tpg5x")
 }],
 "loop": true,
 "name": &"default",
 "speed": 10.0
 }]
 
-[node name="player_ship" type="CharacterBody2D" groups=["player"]]
-script = ExtResource("1_gmlin")
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_4kuee")
 
 [node name="ship_collision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-2, -16, 2, -16, 2, -15, 3, -15, 3, -14, 4, -14, 4, -13, 5, -13, 5, -12, 6, -12, 6, -11, 7, -11, 7, -4, 8, -4, 8, -3, 9, -3, 9, -2, 10, -2, 10, -1, 11, -1, 11, 0, 12, 0, 12, 1, 13, 1, 13, 2, 14, 2, 14, 3, 15, 3, 15, 4, 16, 4, 16, 5, 17, 5, 17, 13, 12, 13, 12, 12, 11, 12, 11, 11, 9, 11, 9, 10, 8, 10, 8, 13, 7, 13, 7, 14, 6, 14, 6, 15, 5, 15, 5, 16, 4, 16, 4, 17, -4, 17, -4, 16, -5, 16, -5, 15, -6, 15, -6, 14, -7, 14, -7, 13, -8, 13, -8, 10, -9, 10, -9, 11, -11, 11, -11, 12, -12, 12, -12, 13, -17, 13, -17, 5, -16, 5, -16, 4, -15, 4, -15, 3, -14, 3, -14, 2, -13, 2, -13, 1, -12, 1, -12, 0, -11, 0, -11, -1, -10, -1, -10, -2, -9, -2, -9, -3, -8, -3, -8, -4, -7, -4, -7, -11, -6, -11, -6, -12, -5, -12, -5, -13, -4, -13, -4, -14, -3, -14, -3, -15, -2, -15)
@@ -44,3 +44,11 @@ position = Vector2(16, 4)
 
 [node name="shoot_delay" type="Timer" parent="."]
 one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="ship_collision" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-2, -16, 2, -16, 2, -15, 3, -15, 3, -14, 4, -14, 4, -13, 5, -13, 5, -12, 6, -12, 6, -11, 7, -11, 7, -4, 8, -4, 8, -3, 9, -3, 9, -2, 10, -2, 10, -1, 11, -1, 11, 0, 12, 0, 12, 1, 13, 1, 13, 2, 14, 2, 14, 3, 15, 3, 15, 4, 16, 4, 16, 5, 17, 5, 17, 13, 12, 13, 12, 12, 11, 12, 11, 11, 9, 11, 9, 10, 8, 10, 8, 13, 7, 13, 7, 14, 6, 14, 6, 15, 5, 15, 5, 16, 4, 16, 4, 17, -4, 17, -4, 16, -5, 16, -5, 15, -6, 15, -6, 14, -7, 14, -7, 13, -8, 13, -8, 10, -9, 10, -9, 11, -11, 11, -11, 12, -12, 12, -12, 13, -17, 13, -17, 5, -16, 5, -16, 4, -15, 4, -15, 3, -14, 3, -14, 2, -13, 2, -13, 1, -12, 1, -12, 0, -11, 0, -11, -1, -10, -1, -10, -2, -9, -2, -9, -3, -8, -3, -8, -4, -7, -4, -7, -11, -6, -11, -6, -12, -5, -12, -5, -13, -4, -13, -4, -14, -3, -14, -3, -15, -2, -15)
+disabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

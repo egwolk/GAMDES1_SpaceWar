@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://blyw2xqgcq4h6"]
+
+[ext_resource type="Texture2D" uid="uid://cqru05iqtwq3k" path="res://graphics/meteor/asteroids.png" id="1_7qfdp"]
+[ext_resource type="Script" uid="uid://c5ntbuw27n8v5" path="res://scripts/meteors_sprite.gd" id="2_sxpol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v11hb"]
+radius = 14.0
+
+[node name="medium_meteor" type="CharacterBody2D"]
+
+[node name="medium_meteor_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7qfdp")
+region_enabled = true
+region_rect = Rect2(0, 48, 48, 48)
+script = ExtResource("2_sxpol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v11hb")

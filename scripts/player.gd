@@ -1,12 +1,14 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
-@export var speed :float = 200.0
+
+@export var speed :float = 100.0
 @export var acceleration :float = 10.0
 @export var shootDelay :float = 0.1
+@export var life : int = 3
 
 @onready var bullet = preload("res://scenes/player_bullet/bullet.tscn")
 @onready var level = get_parent()
-@onready var _ship = $ship_sprite
+#@onready var _ship = $ship_sprite
 @onready var _guns = $gun_positions
 @onready var _shootCD = $shoot_delay
 
@@ -39,7 +41,12 @@ func get_input(delta: float) -> void:
 	velocity = velocity.move_toward(input_direction * speed, acceleration)
 	position += velocity * delta
 	
-	
+func die(amount:int):
+	#life-=amount
+	#print("player life: %s" % life)
+	#if life<=0:
+		#print("player died")
+	queue_free()
 
 func _process(delta: float) -> void:
 	get_input(delta)	
@@ -53,3 +60,11 @@ func _physics_process(delta: float) -> void:
 		shoot()
 	move_and_slide()
 	move_and_collide(velocity*delta)
+
+
+	
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("meteor"):
+		die(1)
