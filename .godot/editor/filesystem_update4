@@ -8,3 +8,6 @@ res://scenes/player/Player.tscn
 res://scripts/bullet.gd
 res://scripts/player.gd
 res://scenes/meteors/meteor.gd
+res://scripts/meteors_sprite.gd
+res://scripts/spawner.gd
+res://scripts/meteor.gd

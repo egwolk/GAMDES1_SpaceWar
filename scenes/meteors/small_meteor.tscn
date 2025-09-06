@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ukax04mgfhot"]
+[gd_scene load_steps=5 format=3 uid="uid://ukax04mgfhot"]
 
 [ext_resource type="Texture2D" uid="uid://cqru05iqtwq3k" path="res://graphics/meteor/asteroids.png" id="1_15ifl"]
+[ext_resource type="Script" uid="uid://b76uboi0s6hlj" path="res://scripts/meteor.gd" id="1_jonfa"]
 [ext_resource type="Script" uid="uid://c5ntbuw27n8v5" path="res://scripts/meteors_sprite.gd" id="2_jonfa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ud3um"]
 radius = 8.0
 
-[node name="small_meteor" type="CharacterBody2D"]
+[node name="small_meteor" type="Area2D" groups=["meteor"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_jonfa")
+minSpeed = 50.0
+maxSpeed = 80.0
 
 [node name="small_meteor_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_15ifl")
@@ -16,3 +22,7 @@ script = ExtResource("2_jonfa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ud3um")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

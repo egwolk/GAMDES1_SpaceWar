@@ -5,14 +5,14 @@ class_name Meteor extends Area2D
 @export var minRotate : float = -20
 @export var maxRotate : float = 20
 
-@export var life : int = 20
+@export var life : int = 1
 
 var speed : float = 0
 var rotationRate : float = 0
 
 func _ready(): 
-	#speed = randf_range(minSpeed, maxSpeed)
-	#rotationRate = randf_range(minRotate, maxRotate)
+	speed = randf_range(minSpeed, maxSpeed)
+	rotationRate = randf_range(minRotate, maxRotate)
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -30,7 +30,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
+	if body is Player:
 		#body.die()
 		print("hit")
 		queue_free()
