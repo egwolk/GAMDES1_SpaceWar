@@ -11,8 +11,8 @@ class_name Player extends CharacterBody2D
 #@onready var _ship = $ship_sprite
 @onready var _guns = $gun_positions
 @onready var _shootCD = $shoot_delay
-
-
+		
+		
 func shoot():
 	for child in _guns.get_children():
 		var instance = bullet.instantiate()
@@ -41,8 +41,12 @@ func get_input(delta: float) -> void:
 	velocity = velocity.move_toward(input_direction * speed, acceleration)
 	position += velocity * delta
 	
-func die():
-	queue_free()
+func damage(amount:int):
+	life-=amount
+	print("player life: %s" % life)
+	if life<=0:
+		print("player died")
+		queue_free()
 
 func _process(delta: float) -> void:
 	get_input(delta)	
@@ -56,8 +60,3 @@ func _physics_process(delta: float) -> void:
 		shoot()
 	move_and_slide()
 	move_and_collide(velocity*delta)
-
-
-func _on_area_2d_area_entered(area):
-	if area is Meteor:
-		die()

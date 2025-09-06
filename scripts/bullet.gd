@@ -24,10 +24,3 @@ func _on_area_2d_area_entered(area):
 		area.damage(1)
 	queue_free()
 	print("hit")
-
-
-#func _on_area_2d_body_entered(body) -> void:
-	#if body.is_in_group("meteor"):
-		#body.damage(1)
-	#queue_free()
-	#print("hit")
