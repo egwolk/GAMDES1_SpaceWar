@@ -1,8 +1,10 @@
 res://scenes/main_scenes/level.tscn
-res://scenes/player/Player.tscn
 res://scenes/main_scenes/main.tscn
 res://scenes/player_bullet/bullet.tscn
 res://scenes/meteors/big_meteor.tscn
 res://scenes/meteors/medium_meteor.tscn
 res://scenes/meteors/small_meteor.tscn
+res://scenes/player/Player.tscn
 res://scripts/bullet.gd
+res://scripts/player.gd
+res://scenes/meteors/meteor.gd

@@ -41,11 +41,7 @@ func get_input(delta: float) -> void:
 	velocity = velocity.move_toward(input_direction * speed, acceleration)
 	position += velocity * delta
 	
-func die(amount:int):
-	#life-=amount
-	#print("player life: %s" % life)
-	#if life<=0:
-		#print("player died")
+func die():
 	queue_free()
 
 func _process(delta: float) -> void:
@@ -62,9 +58,5 @@ func _physics_process(delta: float) -> void:
 	move_and_collide(velocity*delta)
 
 
-	
-
-
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("meteor"):
-		die(1)
+	print("hit")

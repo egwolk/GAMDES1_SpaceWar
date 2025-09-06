@@ -1,6 +1,6 @@
 Area2D
-VisibleOnScreenNotifier2D
 CharacterBody2D
+VisibleOnScreenNotifier2D
 CollisionShape2D
 Sprite2D
 Timer

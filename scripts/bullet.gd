@@ -20,7 +20,14 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func _on_area_2d_area_entered(area):
-	#if area.is_in_group("meteor"):
-		#area.damage(1)
+	if area.is_in_group("meteor"):
+		area.damage(1)
 	queue_free()
 	print("hit")
+
+
+#func _on_area_2d_body_entered(body) -> void:
+	#if body.is_in_group("meteor"):
+		#body.damage(1)
+	#queue_free()
+	#print("hit")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4fwi5nct0tap"]
 
-[ext_resource type="PackedScene" uid="uid://dbj7cpyhvea1t" path="res://scenes/player/Player.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://dbj7cpyhvea1t" path="res://scenes/player/player.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://bvu1iy2u836rt" path="res://scenes/meteors/big_meteor.tscn" id="2_d028h"]
 
 [node name="level" type="Node2D"]
